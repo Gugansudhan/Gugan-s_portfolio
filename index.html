@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A web developer profile website showcasing skills, projects, and contact details.">
+    <meta name="keywords" content="Web Developer, Portfolio, Projects, Skills, Contact">
+    <title>Profile Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Portfolio.</h1>
+        <div class="menu">
+            <div class="nav-bar">
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#career" class="nav-link">Career</a></li>
+                        <li><a href="#portfolio" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+            <div class="main">
+                <button class="btn-dark" aria-label="Toggle dark mode" onclick="darkMode(this)">&#9728;</button>
+                <div class="main-items menu-icon-container" id="menu-icon-js">
+                    <div class="bx bx-menu" id="menu-icon" onclick="toggleMenu()">&#9776;</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section id="home" class="page-section">
+            <div class="home-content">
+                <div class="column-right">
+                    <img src="Gugan_img.jpg" alt="Profile image of Gugan S">
+                </div>
+                <div class="column-left">
+                        <h2>I'm <span>Gugan</span></h2>
+                        <p>A 22-year-old Web Developer with a deep passion for crafting elegant and user-friendly websites. With a creative mindset and strong technical skills, I specialize in turning web ideas into visually stunning and functional realities.<span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span></p>
+                        <div class="icons">
+                            <img src="Linkedin.png" alt="">
+                            <img src="github.png" alt="">
+                            <img src="email.png" alt="">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <div class="container-about">
+                <h1>About me</h1>
+                <div class="about-img">
+                    <img alt="" height="200" src="Gugan_img.jpg" width="200"/>
+                </div>
+                <div class="about-content">
+                       <h2>
+                        I'm working as a graduate engineer trainee in PSIOG Digital.
+                       </h2>
+                       <p>
+                        Over the years, I've developed strong expertise in full-stack development, UX/UI design, etc., and I continually challenge myself to learn and stay updated with the latest trends in technology.
+
+                            When I'm not coding or working on projects, playing volleyball, hiking. I believe that great work is born from passion, creativity, and continuous learning.
+
+                            Feel free to check out my projects or get in touch—I'm always open to discussing new ideas and opportunities.
+
+                       </p>
+                       <a class="btn" href="#">
+                        Download CV
+                       </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="career" class="page-section">
+            <div class="container-career">
+                <h1>Career</h1>
+                <div class="timeline">
+                    <div class="left">
+                        <div class="item">
+                            <div class="content-wrapper">
+                                <img src="psiog.png" alt="Computer Engineer Image" class="timeline-img"/>
+                                <div class="content">
+                                    <h3>Graduate Engineer Trainee</h3>
+                                    <p>PSIOG digital</p>
+                                    <div class="date">
+                                        2024 - Present
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" id="school-item">
+                            <div class="content-wrapper" id="school-content">
+                                <img src="laurel-secondary-school-cbse-srinivasapuram-pattukottai-pattukottai-schools-1uavw0c-250.png" id="school-img" alt="Web Development Image" class="timeline-img"/>
+                                <div class="content">
+                                    <h3>12th Standard</h3>
+                                    <p>Laurel higher secondary school</p>
+                                    <div class="date">
+                                        2018 - 2020
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="right">
+                        <div class="item">
+                            <div class="content-wrapper">
+                                <img src="Easwari_Engineering_College_logo.png" id="easwari-img" alt="Web Design Image" class="timeline-img"/>
+                                <div class="content">
+                                    <h3>Information Technology (B.Tech)</h3>
+                                    <p>Easwari Engineering College</p>
+                                    <div class="date">
+                                        <i class="far fa-calendar-alt"></i> 2020 - 2024
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section id="portfolio" class="page-section">
+            <div class="container-projects">
+                <h1>Projects</h1>
+                <div class="services">
+                    <div class="service-card portrait-image">
+                        <img src="QR.png" alt="QR Project" id="projects-QR">
+                        <div class="portrait-layer">
+                            <h3>QR Code Scanner</h3>
+                            <p>Scan and generate QR codes.</p>
+                        </div>
+                    </div>
+                    <div class="service-card portrait-image">
+                        <img src="chat.png" alt="Chat Application">
+                        <div class="portrait-layer">
+                            <h3>Chat Application</h3>
+                            <p>Real-time messaging system.</p>
+                        </div>
+                    </div>
+                    <div class="service-card portrait-image">
+                        <img src="temperature.png" alt="Temperature Monitor">
+                        <div class="portrait-layer">
+                            <h3>Temperature Monitor</h3>
+                            <p>Track and display real-time temperatures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="page-section">
+            <div class="container-contact">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h2>Mobile no</h2>
+                            <p>7094747456</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h2>Email</h2>
+                            <p>gugan.sanmuganathan@psiog.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h2>Location</h2>
+                            <p>Tharamani, Chennai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Project" style="width: calc(100% - 20px);">
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gugan S</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

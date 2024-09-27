@@ -1,0 +1,942 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* ,
+*::before,
+*::after{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-color: #1b1b1b;
+    --dark-icon-color: #fff;
+    --light-color: radial-gradient(circle at 60% 50%, rgba(238,174,202,1) 0%, rgb(127, 172, 224) 100%);
+    --light-icon-color: #FFDE59;
+}
+
+body {
+    background: var(--light-color);
+    color: black;
+    font-size: 25px;
+}
+  
+.dark-mode {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--light-color); /* Adjust background color */
+    z-index: 1000; /* Ensure it's above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.menu{
+    display: flex;
+    gap: 1rem;
+}
+
+.menu-icon-container {
+    display: none;
+    cursor: pointer;
+}
+
+nav {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Hamburger menu icon */
+#menu-icon {
+    font-size: 30px;
+}
+
+/* Media query for screens below 1000px */
+@media (max-width: 1000px) {
+    .nav-bar nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(4px);
+        border-radius: 20px;
+        width: 200px;
+        border: 1px solid #000000;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode .nav-bar nav ul{
+        background-color: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(4px);
+    color: white;   
+    }
+    
+    /* Show the menu icon */
+    .menu-icon-container {
+        display: block;
+    }
+    
+    /* Toggle display of the menu when active */
+    .nav-bar nav ul.active {
+        display: flex;
+    }
+}
+
+body, header, main {
+    transition: background-color 0.3s, color 0.3s; /* Apply the transition to both */
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+body.dark-mode header {
+    background-color: var(--dark-color); /* Dark mode background */
+    color: white; /* Dark mode text color */
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
+}
+
+body.dark-mode main {
+    background-color: var(--dark-color); /* Dark mode background */
+    color: white;/* Dark mode text color *//* Lighter shadow for dark mode */
+}
+
+/* Add some margin to the main content to prevent it from being hidden behind the header */
+main {
+    margin-top: 70px; /* Equal to header height */
+    padding: 2rem;/* Smooth transition */
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.btn-dark {
+    border-radius: 50%;
+    padding: 0 3px; 
+    border: none;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: var(--light-color); /* Set default light mode background */
+    color: var(--dark-color); /* Default light mode icon color */
+    transition: all 0.3s ease-in-out; /* Add smooth transitions */
+    cursor: pointer;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s ease-in-out; /* Adjust speed and ease as desired */
+}
+body.dark-mode .btn-dark {
+    background-color: var(--dark-color);
+    color: var(--light-icon-color);
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a::after {
+    content: ''; /* This is required for ::after to work */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position it slightly below the text */
+    width: 100%;
+    height: 3px;
+    background-color: #b4005a;
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: right;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expand the underline on hover */
+    transform-origin: left;
+    color: #b4005a;
+}
+
+nav ul li a {
+    position: relative;
+    font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.page-section {
+    min-height: 100vh; /* Each section will take full viewport height */
+    padding: 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInBottom 1s ease-in-out;
+    /* text-align: center; */
+}
+
+#home .home-content {
+    display: flex;
+    flex-direction: row-reverse; 
+}
+
+body.dark-mode footer{
+    background-color: var(--dark-color);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+
+p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+.typed-cursor.typed-cursor--blink {
+    animation: typedjsBlink 0.7s infinite;
+}
+
+@keyframes typedjsBlink {
+    50% { opacity: 0; }
+}
+
+
+.home-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 2rem; /* Space between text and image */
+    font-size: 20px;
+}
+
+.column-left {
+    flex: 1;
+    padding-right: 2rem; 
+    margin-left: 50px;
+}
+
+.icons{
+    display: flex;
+    gap: 2rem;
+}
+.icons img{
+    height: 40px;
+    width: 40px;
+}
+
+.column-left h2 span{
+    color: rgb(105, 52, 155);
+    text-shadow: 2px 2px rgb(49, 45, 45);
+}
+
+.column-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.column-right img {
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%; /* Optional: Rounded image */
+    object-fit: cover;
+    box-shadow: 5px 5px 5px rgb(87, 87, 87);
+}
+
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+@media (max-width: 1000px) {
+    .home-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icons{
+        justify-content: center;
+        text-align: center;
+    }
+
+    .column-left {
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    #home .home-content {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: center; /* Center-align content for smaller screens */
+    }
+
+    .column-right img {
+        width: 35vh; /* You can adjust the size of the image */
+        height: 35vh;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul {
+        font-size: 1rem;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.education-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-left: 5px solid red;
+}
+.education-item img {
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    border: 2px solid red;
+    margin-right: 20px;
+}
+.education-item h2 {
+    margin: 0;
+    color: #d32f2f;
+}
+.education-item h3 {
+    margin: 5px 0;
+    color: #333;
+}
+.education-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.container-contact {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 80%;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto; /* Center the container */
+    animation: slideInRight 1.5s ease-in-out;
+}
+
+.contact-info {
+    flex: 1;
+    padding: 40px;
+}
+
+.contact-info h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info i {
+    font-size: 24px;
+    color: #6a0dad;
+    margin-right: 10px;
+}
+
+.contact-info .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    flex: 2;
+    padding: 40px;
+    /* animation: slideInLeft 1.5s ease-in-out; */
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: calc(50% - 10px);
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    width: calc(100% - 20px);
+    height: 150px;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.contact-form button i {
+    margin-left: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column; /* Stack contact-info and contact-form on top of each other */
+        width: 95%; /* Adjust width to fit smaller screens */
+    }
+
+    .contact-info, 
+    .contact-form {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+        width: calc(100% - 20px); /* Make inputs and textarea take full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h2 {
+        font-size: 20px; /* Reduce heading size */
+    }
+
+    .contact-info i {
+        font-size: 20px; /* Reduce icon size */
+    }
+
+    .contact-form button {
+        padding: 10px 20px; /* Reduce button padding */
+        font-size: 14px; /* Adjust button font size */
+    }
+}
+
+.container-career {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.timeline .left, 
+.timeline .right {
+    width: 45%;
+    text-align: left;
+    position: relative;
+}
+.timeline .left .item{
+    display: flex;
+    justify-content: space-between;
+}
+.timeline .left .item, 
+.timeline .right .item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px;  
+}
+
+.timeline .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline .left .content-wrapper {
+    flex-direction: row-reverse; /* Image on the right for left side */
+}
+
+.timeline .right .content-wrapper {
+    flex-direction: row; /* Image on the left for right side */
+}
+
+.timeline .timeline-img {
+    width: 130px;
+    height: 50px;
+    /* object-fit: cover; */
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+#school-item{
+    margin-top: 100px;
+}
+#school-content{
+    display: flex;
+    justify-content: space-between;
+}
+#school-img{
+    height: 100px;
+    width: 100px;
+}
+
+#easwari-img{
+    height: 100px;
+    width: 100px;
+}
+
+.timeline .content {
+    text-align: left;
+}
+
+.timeline .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+    margin: 20px;
+}
+
+.timeline .center .circle {
+    width: 12px;
+    height: 12px;
+    background-color: #6c63ff;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.timeline .center .line {
+    width: 2px;
+    background-color: #6c63ff;
+    height: 100px; /* Adjust height between circles */
+}
+
+.timeline .item h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+}
+
+.timeline .item p {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 0.5em;
+}
+
+.timeline .item .date {
+    font-size: 0.9em;
+    color: #777;
+    display: flex;
+    align-items: center;
+}
+
+.timeline .item .date i {
+    margin-right: 0.5em;
+}
+
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1150px) {
+    .timeline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline .left .content-wrapper {
+        flex-direction: row; /* Image on the right for left side */
+    }
+
+    .timeline .left, 
+    .timeline .right {
+        width: 100%;
+        text-align: left;
+    }
+
+    .timeline .center {
+        display: none;
+    }
+
+    #school-item{
+        margin-top: 0px;
+    }
+
+    #school-content img{
+        text-align: left;
+    }
+
+    .timeline .left .item, 
+    .timeline .right .item {
+        height: auto; /* Let items adjust their height on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .timeline .item h3 {
+        font-size: 1em;
+    }
+
+    .timeline .item p,
+    .timeline .item .date {
+        font-size: 0.8em;
+    }
+}
+
+.container-projects {
+    text-align: center;
+    padding: 20px; /* Added padding for mobile view */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.container-projects h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.container-projects p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    margin: 30px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.service-card {
+    position: relative; /* Important for overlay positioning */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+    background-size: cover;
+    overflow: hidden; /* Hide overflow of scaled images */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: zoomIn 1s ease-in-out;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+    width: 100%; /* Make sure images are responsive */
+    height: 300px;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portrait-image:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.portrait-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0; /* Make the layer hidden initially */
+    transition: opacity 0.5s ease;
+    border-radius: 10px; /* Match the card's border-radius */
+}
+
+.portrait-image:hover .portrait-layer {
+    opacity: 1; /* Show layer on hover */
+}
+
+.service-card h3 {
+    font-size: 20px;
+    color: #fff; /* White color for overlay text */
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #fff; /* White color for overlay description */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column; /* Stack service cards vertically on smaller screens */
+        align-items: center;
+    }
+
+    .service-card {
+        width: 100%; /* Make service cards full width on smaller screens */
+        max-width: 300px; /* Add a max width for better display */
+    }
+
+    .container-projects h1 {
+        font-size: 28px; /* Adjust font size for headings */
+    }
+
+    .container-projects p {
+        font-size: 14px; /* Adjust paragraph font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .container-projects h1 {
+        font-size: 24px; /* Further reduce font size for mobile */
+    }
+
+    .container-projects p {
+        font-size: 12px; /* Reduce paragraph font size for mobile */
+    }
+
+    .service-card h3 {
+        font-size: 18px; /* Adjust font size for service titles */
+    }
+
+    .service-card p {
+        font-size: 12px; /* Adjust font size for descriptions */
+    }
+}
+
+
+.container-about {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Evenly space content on both sides */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Make the layout responsive for smaller screens */
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.container-about h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+body.dark-mode section{
+    color: white;
+}
+
+.about-img {
+    flex: 1;
+    text-align: center;
+    animation: zoomIn 1s ease-in-out;
+    margin-right: 20px; /* Add space between the image and content */
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 2;
+    text-align: left;
+    animation: slideInRight 1s ease-in-out;
+}
+
+.about-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 1000px) {
+    .container-about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img {
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        font-size: 1.1rem;
+    }
+}
+
+@media (orientation: landscape) {
+    body {
+        font-size: 1rem;
+    }
+}
+/* Define Global Animations */
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in from the left */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in from the right */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Zoom-in effect */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Smooth hover effects for clickable items */
+@keyframes hoverGrow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Animation fade-in and zoom-in for elements */
+.page-section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+img {
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
